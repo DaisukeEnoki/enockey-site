@@ -2,10 +2,13 @@ import type { Metadata } from "next";
   import Link from "next/link";                             
   import "./globals.css";
 
-  export const metadata: Metadata = {                       
-    title: "enockey",
+ export const metadata: Metadata = {                       
+    title: "enockey",                                       
     description: "photographer / illustrator / engineer",   
-  };              
+    icons: {                                  
+      icon: "/favicon.png",                   
+    },                                                      
+  };                            
                                                             
   export default function RootLayout({
     children,
