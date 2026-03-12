@@ -24,12 +24,12 @@ import type { Metadata } from "next";
   className="font-bold text-lg">                            
               enockey
             </Link>                                         
-            <nav className="flex gap-8 text-sm 
-  text-gray-500">
-              <Link href="/profile">Profile</Link>
-              <Link href="/photography">Photography</Link>
-              <Link href="/contact">Contact</Link>          
-            </nav>
+            <nav className="flex gap-8 text-sm text-gray-500">        
+    <Link href="/profile">Profile</Link>
+    <Link href="/illustration">Illustration</Link>          
+    <Link href="/photography">Photography</Link>            
+    <Link href="/contact">Contact</Link>                    
+  </nav>         
           </header>                                         
           {children}
         </body>
