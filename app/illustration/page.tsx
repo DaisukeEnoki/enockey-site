@@ -4,10 +4,9 @@
                                                             
   export default function Illustration() {                  
     return (                         
-      <main className="px-8 py-12">                         
-        <h1 className="text-2xl font-bold                   
-  mb-8">Illustration</h1>                                   
-        <div className="grid grid-cols-2 gap-4">            
+      <main className="px-4 py-8 md:px-8 md:py-12">
+        <h1 className="text-2xl font-bold mb-8">Illustration</h1>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">            
           <CldImage                                         
                                                             
   src="91bfe02ace532bee28130dd052a8541e-1536x1536_orunko"   
