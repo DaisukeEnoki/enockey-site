@@ -16,7 +16,7 @@ import type { Metadata } from "next";
     children: React.ReactNode;
   }>) {
     return (
-      <html lang="ja">
+      <html lang="ja" className="light"> 
         <body>                                              
           <header className="flex flex-col sm:flex-row items-start  
   sm:items-center justify-between px-8 py-6 gap-4">         
