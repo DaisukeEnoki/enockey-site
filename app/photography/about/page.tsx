@@ -17,7 +17,7 @@ export default function PhotographyAbout() {
         {/* プロフィールテキスト */}
         <div className="max-w-lg">
           <h1 className="text-5xl font-light mb-12" style={{ color: "#1a1a1a" }}>
-            Enockey
+            enockey
           </h1>
           <p className="text-gray-500 leading-relaxed">
             Photographer based in Tokyo, from Ehime.
