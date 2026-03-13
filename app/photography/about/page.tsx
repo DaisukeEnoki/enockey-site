@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { CldImage } from "next-cloudinary";
 
 export default function PhotographyAbout() {
   return (
@@ -11,8 +14,16 @@ export default function PhotographyAbout() {
           <Link href="/photography/about" className="text-gray-800 font-medium">About</Link>
         </div>
 
-        {/* プロフィール写真（後でCldImageに差し替え） */}
-        <div className="w-full aspect-[4/5] bg-gray-100 mb-16 max-w-2xl" />
+        {/* プロフィール写真 */}
+        <div className="mb-16 max-w-sm">
+          <CldImage
+            src="_42A2040-27_x4shrd"
+            width={600}
+            height={750}
+            alt="enockey"
+            className="w-full object-cover"
+          />
+        </div>
 
         {/* プロフィールテキスト */}
         <div className="max-w-lg">
