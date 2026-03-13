@@ -19,7 +19,7 @@ export default function Profile() {
 
       <div className="flex flex-col items-center gap-2">
         <h1 className="text-3xl font-bold" style={{ color: "#1a1a1a" }}>
-          Daisuke Enoki
+          enockey
         </h1>
         <p className="text-gray-500 text-sm tracking-widest">
           photographer / illustrator / engineer
