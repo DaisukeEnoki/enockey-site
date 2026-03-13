@@ -11,6 +11,7 @@ export default function PhotographyAbout() {
         {/* ナビ */}
         <div className="flex gap-8 mb-16 text-sm text-gray-400">
           <Link href="/photography" className="hover:text-gray-800 transition-colors">Works</Link>
+          <Link href="/photography/text" className="hover:text-gray-800 transition-colors">Text</Link>
           <Link href="/photography/about" className="text-gray-800 font-medium">About</Link>
         </div>
 
