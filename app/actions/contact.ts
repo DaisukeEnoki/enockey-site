@@ -9,6 +9,18 @@ export async function sendContactEmail(formData: FormData) {
   const email = formData.get("email") as string;
   const message = formData.get("message") as string;
 
+  // ハニーポットチェック: 値が入っていたらボット
+  const honeypot = formData.get("_website") as string;
+  if (honeypot) {
+    return { success: false, error: "送信に失敗しました。" };
+  }
+
+  // 送信時間チェック: ページ表示から3秒未満はボットとみなす
+  const loadedAt = Number(formData.get("_loadedAt"));
+  if (!loadedAt || Date.now() - loadedAt < 3000) {
+    return { success: false, error: "送信に失敗しました。" };
+  }
+
   if (!name || !email || !message) {
     return { success: false, error: "すべての項目を入力してください" };
   }

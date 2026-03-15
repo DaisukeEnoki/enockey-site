@@ -8,9 +8,14 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isPending, startTransition] = useTransition();
   const formRef = useRef<HTMLFormElement>(null);
+  // ページ表示時刻を記録（送信時間チェック用）
+  const loadedAt = useRef(Date.now());
 
   function handleSubmit(formData: FormData) {
     startTransition(async () => {
+      // ページ表示から3秒未満の送信はボットとみなす
+      formData.append("_loadedAt", String(loadedAt.current));
+
       const result = await sendContactEmail(formData);
       if (result.success) {
         setStatus("success");
@@ -35,6 +40,11 @@ export default function Contact() {
         </div>
       ) : (
         <form ref={formRef} action={handleSubmit} className="flex flex-col gap-5">
+          {/* ハニーポット: CSSで非表示。ボットが入力したら送信を拒否する */}
+          <div style={{ display: "none" }} aria-hidden="true">
+            <input name="_website" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
+
           <div className="flex flex-col gap-1">
             <label className="text-sm font-medium text-gray-700">お名前</label>
             <input
