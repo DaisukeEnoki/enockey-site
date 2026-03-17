@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# enockey.com
+
+Daisuke Enoki の個人サイト。写真・イラスト・音楽・エンジニアリングを通じて世界観を表現する場所。
+
+**[enockey.com](https://enockey.com)**
+
+---
+
+## Tech Stack
+
+| 技術 | 用途 |
+|------|------|
+| [Next.js 16](https://nextjs.org/) | フレームワーク（App Router） |
+| [TypeScript](https://www.typescriptlang.org/) | 言語 |
+| [Tailwind CSS v4](https://tailwindcss.com/) | スタイリング |
+| [Cloudinary](https://cloudinary.com/) | 画像管理・配信 |
+| [Resend](https://resend.com/) | メール送信 |
+| [Vercel](https://vercel.com/) | ホスティング・自動デプロイ |
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# 依存パッケージをインストール
+npm install
+
+# 環境変数を設定
+cp .env.example .env.local
+# .env.local に必要な値を入力
+
+# 開発サーバーを起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) で確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+`.env.example` を参照してください。
 
-To learn more about Next.js, take a look at the following resources:
+| 変数名 | 説明 |
+|--------|------|
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary のクラウド名 |
+| `RESEND_API_KEY` | Resend の API キー（サーバー専用） |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/
+├── layout.tsx              # 共通レイアウト・ナビゲーション
+├── page.tsx                # Home
+├── actions/
+│   └── contact.ts          # Server Action（メール送信）
+├── profile/                # Profile
+├── photography/            # Photography ギャラリー
+│   └── [slug]/             # 個別プロジェクトビューア
+├── illustration/           # Illustration ギャラリー
+└── contact/                # お問い合わせフォーム
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+`main` ブランチへの push で Vercel が自動デプロイします。
+
+```bash
+git push origin main
+```
+
+---
+
+## License
+
+このリポジトリのコードは参考目的で公開しています。
+コンテンツ（写真・イラスト・テキスト）の無断転載はご遠慮ください。
