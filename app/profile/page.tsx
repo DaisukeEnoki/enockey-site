@@ -22,7 +22,7 @@ export default function Profile() {
           enockey
         </h1>
         <p className="text-gray-500 text-sm tracking-widest">
-          photographer / illustrator / engineer
+          creator
         </p>
       </div>
 
