@@ -5,35 +5,45 @@ import { CldImage } from "next-cloudinary";
 
 const BASE = "https://lens.suzuri.jp/v3/500x500";
 const MID = "19613664/1774186147-2048x2048.png";
+const H = "38bdff83c36cd7dbdec81e28a5926624e7b3d53b";
 
-const products: { id: number; name: string; type: string; suzuriUrl: string; imageUrl: string | null }[] = [
+type Product = {
+  id: number;
+  name: string;
+  type: string;
+  suzuriUrl: string;
+  imageUrl?: string;
+  cloudinaryId?: string;
+};
+
+const products: Product[] = [
   {
     id: 1,
     name: "face sticker",
     type: "ステッカー",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/sticker/m/white",
-    imageUrl: `${BASE}/sticker/m/white/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
+    imageUrl: `${BASE}/sticker/m/white/${MID}.jpg?h=${H}&printed=true`,
   },
   {
     id: 2,
     name: "face mug",
     type: "マグカップ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/mug/m/white",
-    imageUrl: `${BASE}/mug/m/white/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
+    imageUrl: `${BASE}/mug/m/white/${MID}.jpg?h=${H}&printed=true`,
   },
   {
     id: 3,
     name: "face tote bag",
     type: "トートバッグ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/tote-bag/m/natural",
-    imageUrl: null, // SUZURIの画像URLがJWT認証必須のため暫定
+    cloudinaryId: "50e124a0-a7d4-49c9-a87c-b9cddf8016e7_xkzdpi",
   },
   {
     id: 4,
     name: "face keychain",
     type: "アクリルキーホルダー",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/acrylic-keychain/50x50mm/clear",
-    imageUrl: `${BASE}/acrylic-keychain/50x50mm/clear/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
+    imageUrl: `${BASE}/acrylic-keychain/50x50mm/clear/${MID}.jpg?h=${H}&printed=true`,
   },
   {
     id: 5,
@@ -65,20 +75,20 @@ export default function Shop() {
               className="group"
             >
               <div className="aspect-square overflow-hidden bg-white relative">
-                {product.imageUrl ? (
-                  <Image
-                    src={product.imageUrl}
-                    fill
-                    alt={product.name}
-                    className="object-contain p-4 group-hover:opacity-80 transition-opacity"
-                  />
-                ) : (
+                {product.cloudinaryId ? (
                   <CldImage
-                    src="favicon_hetwn3"
+                    src={product.cloudinaryId}
                     width={500}
                     height={500}
                     alt={product.name}
-                    className="w-full h-full object-contain p-8 group-hover:opacity-80 transition-opacity"
+                    className="w-full h-full object-contain p-4 group-hover:opacity-80 transition-opacity"
+                  />
+                ) : (
+                  <Image
+                    src={product.imageUrl!}
+                    fill
+                    alt={product.name}
+                    className="object-contain p-4 group-hover:opacity-80 transition-opacity"
                   />
                 )}
               </div>
