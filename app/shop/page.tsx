@@ -4,8 +4,8 @@ import Image from "next/image";
 import { CldImage } from "next-cloudinary";
 
 const BASE = "https://lens.suzuri.jp/v3/500x500";
-const MID = "19613664/1774186147-2048x2048.png";
-const H = "38bdff83c36cd7dbdec81e28a5926624e7b3d53b";
+const MID = "19615168/1774222653-2048x2048.jpg";
+const H = "7c15714aaa6f4c6be4292c14697a7156ce1f9b46";
 
 type Product = {
   id: number;
@@ -19,38 +19,38 @@ type Product = {
 const products: Product[] = [
   {
     id: 1,
-    name: "face sticker",
-    type: "ステッカー",
-    suzuriUrl: "https://suzuri.jp/enockey/19613664/sticker/m/white",
-    imageUrl: `${BASE}/sticker/m/white/${MID}.jpg?h=${H}&printed=true`,
+    name: "face can badge",
+    type: "缶バッジ",
+    suzuriUrl: "https://suzuri.jp/enockey/19615168/can-badge/75mm/white",
+    imageUrl: `${BASE}/can-badge/75mm/white/front/${MID}.webp`,
   },
   {
     id: 2,
     name: "face mug",
     type: "マグカップ",
-    suzuriUrl: "https://suzuri.jp/enockey/19613664/mug/m/white",
+    suzuriUrl: "https://suzuri.jp/enockey/19615168/mug/m/white",
     imageUrl: `${BASE}/mug/m/white/${MID}.jpg?h=${H}&printed=true`,
   },
   {
     id: 3,
     name: "face tote bag",
     type: "トートバッグ",
-    suzuriUrl: "https://suzuri.jp/enockey/19613664/tote-bag/m/natural",
+    suzuriUrl: "https://suzuri.jp/enockey/19615168/tote-bag/m/natural",
     cloudinaryId: "50e124a0-a7d4-49c9-a87c-b9cddf8016e7_xkzdpi",
   },
   {
     id: 4,
     name: "face keychain",
     type: "アクリルキーホルダー",
-    suzuriUrl: "https://suzuri.jp/enockey/19613664/acrylic-keychain/50x50mm/clear",
+    suzuriUrl: "https://suzuri.jp/enockey/19615168/acrylic-keychain/50x50mm/clear",
     imageUrl: `${BASE}/acrylic-keychain/50x50mm/clear/${MID}.jpg?h=${H}&printed=true`,
   },
   {
     id: 5,
     name: "face tumbler",
     type: "サーモタンブラー",
-    suzuriUrl: "https://suzuri.jp/enockey/19613664/thermo-tumbler/360ml/white",
-    imageUrl: `${BASE}/thermo-tumbler/360ml/white/${MID}.1.0+0.0+0.0.jpg?h=f5e530ebd0cd6e66bf2dbbe86706006216776f47&printed=true`,
+    suzuriUrl: "https://suzuri.jp/enockey/19615168/thermo-tumbler/360ml/white",
+    imageUrl: `${BASE}/thermo-tumbler/360ml/white/${MID}.jpg?h=${H}&printed=true`,
   },
 ];
 
