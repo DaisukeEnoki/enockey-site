@@ -16,14 +16,14 @@ const products = [
     name: "face mug",
     type: "マグカップ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/mug/m/white",
-    imageUrl: `https://lens.suzuri.jp/v3/500x500/mug/m/white/right/${MID}.webp`,
+    imageUrl: `${BASE}/mug/m/white/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
   },
   {
     id: 3,
     name: "face tote bag",
     type: "トートバッグ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/tote-bag/m/natural",
-    imageUrl: `https://lens.suzuri.jp/v3/500x500/tote-bag/m/natural/front/${MID}.webp`,
+    imageUrl: `${BASE}/tote-bag/m/natural/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
   },
   {
     id: 4,
