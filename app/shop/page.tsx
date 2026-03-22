@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 const BASE = "https://lens.suzuri.jp/v3/500x500";
 const MID = "19613664/1774186147-2048x2048.png";
 
-const products = [
+const products: { id: number; name: string; type: string; suzuriUrl: string; imageUrl: string | null }[] = [
   {
     id: 1,
     name: "face sticker",
@@ -23,7 +26,7 @@ const products = [
     name: "face tote bag",
     type: "トートバッグ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/tote-bag/m/natural",
-    imageUrl: `${BASE}/tote-bag/m/natural/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
+    imageUrl: null, // SUZURIの画像URLがJWT認証必須のため暫定
   },
   {
     id: 4,
@@ -62,12 +65,22 @@ export default function Shop() {
               className="group"
             >
               <div className="aspect-square overflow-hidden bg-white relative">
-                <Image
-                  src={product.imageUrl}
-                  fill
-                  alt={product.name}
-                  className="object-contain p-4 group-hover:opacity-80 transition-opacity"
-                />
+                {product.imageUrl ? (
+                  <Image
+                    src={product.imageUrl}
+                    fill
+                    alt={product.name}
+                    className="object-contain p-4 group-hover:opacity-80 transition-opacity"
+                  />
+                ) : (
+                  <CldImage
+                    src="favicon_hetwn3"
+                    width={500}
+                    height={500}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-8 group-hover:opacity-80 transition-opacity"
+                  />
+                )}
               </div>
               <div className="mt-2 px-1">
                 <p className="text-sm font-medium" style={{ color: "#1a1a1a" }}>
