@@ -7,7 +7,7 @@ const products = [
     id: 1,
     name: "face sticker",
     type: "ステッカー",
-    suzuriUrl: "https://suzuri.jp/enockey/19613403/sticker/m/white",
+    suzuriUrl: "https://suzuri.jp/enockey/19613664/sticker/m/white",
     cloudinaryId: "favicon_hetwn3",
   },
 ];
