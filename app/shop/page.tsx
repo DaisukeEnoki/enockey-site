@@ -22,7 +22,7 @@ const products: Product[] = [
     name: "face can badge",
     type: "缶バッジ",
     suzuriUrl: "https://suzuri.jp/enockey/19615168/can-badge/75mm/white",
-    imageUrl: `${BASE}/can-badge/75mm/white/front/${MID}.webp`,
+    imageUrl: `${BASE}/can-badge/75mm/white/${MID}.jpg?h=${H}&printed=true`,
   },
   {
     id: 2,
