@@ -1,6 +1,7 @@
-"use client";
+import Image from "next/image";
 
-import { CldImage } from "next-cloudinary";
+const BASE = "https://lens.suzuri.jp/v3/500x500";
+const MID = "19613664/1774186147-2048x2048.png";
 
 const products = [
   {
@@ -8,35 +9,35 @@ const products = [
     name: "face sticker",
     type: "ステッカー",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/sticker/m/white",
-    cloudinaryId: "favicon_hetwn3",
+    imageUrl: `${BASE}/sticker/m/white/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
   },
   {
     id: 2,
     name: "face mug",
     type: "マグカップ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/mug/m/white",
-    cloudinaryId: "favicon_hetwn3",
+    imageUrl: `${BASE}/mug/m/white/${MID}.jpg`,
   },
   {
     id: 3,
     name: "face tote bag",
     type: "トートバッグ",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/tote-bag/m/natural",
-    cloudinaryId: "favicon_hetwn3",
+    imageUrl: `${BASE}/tote-bag/m/natural/${MID}.jpg`,
   },
   {
     id: 4,
     name: "face keychain",
     type: "アクリルキーホルダー",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/acrylic-keychain/50x50mm/clear",
-    cloudinaryId: "favicon_hetwn3",
+    imageUrl: `${BASE}/acrylic-keychain/50x50mm/clear/${MID}.jpg?h=38bdff83c36cd7dbdec81e28a5926624e7b3d53b&printed=true`,
   },
   {
     id: 5,
     name: "face tumbler",
     type: "サーモタンブラー",
     suzuriUrl: "https://suzuri.jp/enockey/19613664/thermo-tumbler/360ml/white",
-    cloudinaryId: "favicon_hetwn3",
+    imageUrl: `${BASE}/thermo-tumbler/360ml/white/${MID}.1.0+0.0+0.0.jpg?h=f5e530ebd0cd6e66bf2dbbe86706006216776f47&printed=true`,
   },
 ];
 
@@ -60,13 +61,12 @@ export default function Shop() {
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="aspect-square overflow-hidden bg-white">
-                <CldImage
-                  src={product.cloudinaryId}
-                  width={600}
-                  height={600}
+              <div className="aspect-square overflow-hidden bg-white relative">
+                <Image
+                  src={product.imageUrl}
+                  fill
                   alt={product.name}
-                  className="w-full h-full object-contain p-6 group-hover:opacity-80 transition-opacity"
+                  className="object-contain p-4 group-hover:opacity-80 transition-opacity"
                 />
               </div>
               <div className="mt-2 px-1">
