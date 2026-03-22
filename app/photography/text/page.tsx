@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // 記事を追加するときはここに追記する
-const texts = [
+const texts: { title: string; year: string; slug: string | null; url: string | null }[] = [
   // 例（外部リンク）:
   // {
   //   title: "記事タイトル",

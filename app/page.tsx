@@ -15,6 +15,11 @@ const sections = [
     cloudinaryId: "91bfe02ace532bee28130dd052a8541e-1536x1536_orunko",
   },
   {
+    href: "/shop",
+    label: "Shop",
+    cloudinaryId: "favicon_hetwn3",
+  },
+  {
     href: null,
     label: "Music",
     cloudinaryId: null,
