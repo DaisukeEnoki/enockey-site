@@ -10,6 +10,34 @@ const products = [
     suzuriUrl: "https://suzuri.jp/enockey/19613664/sticker/m/white",
     cloudinaryId: "favicon_hetwn3",
   },
+  {
+    id: 2,
+    name: "face mug",
+    type: "マグカップ",
+    suzuriUrl: "https://suzuri.jp/enockey/19613664/mug/m/white",
+    cloudinaryId: "favicon_hetwn3",
+  },
+  {
+    id: 3,
+    name: "face tote bag",
+    type: "トートバッグ",
+    suzuriUrl: "https://suzuri.jp/enockey/19613664/tote-bag/m/natural",
+    cloudinaryId: "favicon_hetwn3",
+  },
+  {
+    id: 4,
+    name: "face keychain",
+    type: "アクリルキーホルダー",
+    suzuriUrl: "https://suzuri.jp/enockey/19613664/acrylic-keychain/50x50mm/clear",
+    cloudinaryId: "favicon_hetwn3",
+  },
+  {
+    id: 5,
+    name: "face tumbler",
+    type: "サーモタンブラー",
+    suzuriUrl: "https://suzuri.jp/enockey/19613664/thermo-tumbler/360ml/white",
+    cloudinaryId: "favicon_hetwn3",
+  },
 ];
 
 export default function Shop() {
