@@ -81,7 +81,7 @@ const series: Series[] = [
         name: "taiyaki dry T-shirt",
         type: "ドライTシャツ",
         suzuriUrl: "https://suzuri.jp/enockey/19634798/dry-t-shirt/l/white",
-        imageUrl: `${BASE}/dry-t-shirt/l/white/${MID2}.jpg?h=${H2}&printed=true`,
+        imageUrl: `${BASE}/dry-t-shirt/l/white/front/${MID2}.jpg?h=${H2}&printed=true`,
       },
       {
         id: 8,
