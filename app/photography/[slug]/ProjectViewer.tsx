@@ -12,12 +12,16 @@ type Props = {
   title: string;
   year: string;
   images: string[];
+  description?: string;
+  url?: string;
+  tags?: string[];
 };
 
-export default function ProjectViewer({ title, year, images }: Props) {
+export default function ProjectViewer({ title, year, images, description, url, tags }: Props) {
   const swiperRef = useRef<Swiper | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(1);
+  const [detailOpen, setDetailOpen] = useState(false);
   const total = images.length;
 
   useEffect(() => {
@@ -69,22 +73,22 @@ export default function ProjectViewer({ title, year, images }: Props) {
       </div>
 
       {/* 写真エリア */}
-      <div className="flex-1 flex items-center justify-center px-6 py-4">
+      <div className="flex-1 flex items-center justify-center px-8 py-2">
         {total === 0 ? (
           <div className="w-full max-w-4xl aspect-video bg-gray-200 flex items-center justify-center">
             <p className="text-gray-400 text-sm">写真をCloudinaryにアップ後に表示されます</p>
           </div>
         ) : (
-          <div ref={containerRef} className="swiper w-full max-w-4xl">
+          <div ref={containerRef} className="swiper w-full">
             <div className="swiper-wrapper">
               {images.map((src, i) => (
-                <div key={src} className="swiper-slide">
+                <div key={src} className="swiper-slide flex items-center justify-center">
                   <CldImage
                     src={src}
                     alt={`${title} - ${i + 1}`}
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto object-contain"
+                    width={1600}
+                    height={1200}
+                    className="max-h-[calc(100vh-8rem)] w-auto max-w-full object-contain"
                   />
                 </div>
               ))}
@@ -99,6 +103,14 @@ export default function ProjectViewer({ title, year, images }: Props) {
           <p className="text-gray-800 font-medium uppercase tracking-wide">
             {title}, {year}
           </p>
+          {description && (
+            <button
+              onClick={() => setDetailOpen(true)}
+              className="text-gray-400 hover:opacity-60 transition-opacity mt-1"
+            >
+              detail +
+            </button>
+          )}
         </div>
         {total > 0 && (
           <p className="text-gray-500">
@@ -106,6 +118,54 @@ export default function ProjectViewer({ title, year, images }: Props) {
           </p>
         )}
       </div>
+
+      {/* detail オーバーレイ */}
+      {detailOpen && (
+        <div
+          className="fixed inset-0 flex flex-col"
+          style={{ backgroundColor: "#f5f5f5" }}
+        >
+          {/* Close */}
+          <div className="flex justify-end px-6 py-4">
+            <button
+              onClick={() => setDetailOpen(false)}
+              className="text-sm text-gray-800 hover:opacity-60 transition-opacity"
+            >
+              Close
+            </button>
+          </div>
+
+          {/* 本文 */}
+          <div className="flex-1 flex items-center justify-center px-12">
+            <div className="max-w-md w-full">
+              {description && (
+                <p className="text-sm text-gray-700 leading-relaxed mb-6">
+                  {description}
+                </p>
+              )}
+              {url && (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-400 hover:opacity-60 transition-opacity block mb-4"
+                >
+                  {url}
+                </a>
+              )}
+              {tags && tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <span key={tag} className="text-sm text-gray-400">
+                      {tag},
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );

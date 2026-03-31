@@ -2,11 +2,21 @@ import { getImagesInFolder } from "@/lib/cloudinary";
 import ProjectViewer from "./ProjectViewer";
 
 // プロジェクトのメタデータ
-const projectsMeta: Record<string, { title: string; year: string; folder: string }> = {
+const projectsMeta: Record<string, {
+  title: string;
+  year: string;
+  folder: string;
+  description?: string;
+  url?: string;
+  tags?: string[];
+}> = {
   "seeds-of-joy-2024": {
     title: "Seeds of Joy",
     year: "2024",
     folder: "Photography/seeds-of-joy-2024",
+    description: "UNSALOP によるグループ展「Seeds of Joy」に参加。喜びの種をテーマに撮影した作品を展示しました。",
+    url: "https://unsalop.com",
+    tags: ["exhibition", "portrait", "group show"],
   },
 };
 
@@ -33,6 +43,9 @@ export default async function ProjectPage({
       title={meta.title}
       year={meta.year}
       images={images}
+      description={meta.description}
+      url={meta.url}
+      tags={meta.tags}
     />
   );
 }
