@@ -7,7 +7,7 @@ const sections = [
   {
     href: "/photography",
     label: "Photography",
-    cloudinaryId: null, // 写真追加時にCloudinary public IDを入れる
+    cloudinaryId: "_42A1931-1-2_epzppp",
   },
   {
     href: "/illustration",

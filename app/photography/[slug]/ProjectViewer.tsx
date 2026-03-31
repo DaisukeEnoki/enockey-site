@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CldImage } from "next-cloudinary";
+import Swiper from "swiper";
+import { Keyboard, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 type Props = {
   title: string;
@@ -11,20 +15,34 @@ type Props = {
 };
 
 export default function ProjectViewer({ title, year, images }: Props) {
-  const [index, setIndex] = useState(0);
+  const swiperRef = useRef<Swiper | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [current, setCurrent] = useState(1);
   const total = images.length;
-  const hasPrev = index > 0;
-  const hasNext = index < total - 1;
 
-  // キーボード矢印キーで遷移
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" && hasNext) setIndex(i => i + 1);
-      if (e.key === "ArrowLeft" && hasPrev) setIndex(i => i - 1);
+    if (!containerRef.current || total === 0) return;
+
+    swiperRef.current = new Swiper(containerRef.current, {
+      modules: [Keyboard, EffectFade],
+      keyboard: { enabled: true },
+      speed: 600,
+      effect: "fade",
+      fadeEffect: { crossFade: true },
+      on: {
+        slideChange(swiper) {
+          setCurrent(swiper.activeIndex + 1);
+        },
+      },
+    });
+
+    return () => {
+      swiperRef.current?.destroy();
     };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [hasPrev, hasNext]);
+  }, [total]);
+
+  const goPrev = () => swiperRef.current?.slidePrev();
+  const goNext = () => swiperRef.current?.slideNext();
 
   return (
     <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#f5f5f5" }}>
@@ -36,16 +54,14 @@ export default function ProjectViewer({ title, year, images }: Props) {
         </Link>
         <div className="flex gap-6">
           <button
-            onClick={() => setIndex(i => i - 1)}
-            disabled={!hasPrev}
-            className="text-gray-800 disabled:opacity-30 hover:opacity-60 transition-opacity"
+            onClick={goPrev}
+            className="text-gray-800 hover:opacity-60 transition-opacity"
           >
             Back
           </button>
           <button
-            onClick={() => setIndex(i => i + 1)}
-            disabled={!hasNext}
-            className="text-gray-800 disabled:opacity-30 hover:opacity-60 transition-opacity"
+            onClick={goNext}
+            className="text-gray-800 hover:opacity-60 transition-opacity"
           >
             Next
           </button>
@@ -59,14 +75,20 @@ export default function ProjectViewer({ title, year, images }: Props) {
             <p className="text-gray-400 text-sm">写真をCloudinaryにアップ後に表示されます</p>
           </div>
         ) : (
-          <div className="w-full max-w-4xl">
-            <CldImage
-              src={images[index]}
-              alt={`${title} - ${index + 1}`}
-              width={1200}
-              height={800}
-              className="w-full h-auto object-contain"
-            />
+          <div ref={containerRef} className="swiper w-full max-w-4xl">
+            <div className="swiper-wrapper">
+              {images.map((src, i) => (
+                <div key={src} className="swiper-slide">
+                  <CldImage
+                    src={src}
+                    alt={`${title} - ${i + 1}`}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
@@ -80,7 +102,7 @@ export default function ProjectViewer({ title, year, images }: Props) {
         </div>
         {total > 0 && (
           <p className="text-gray-500">
-            {index + 1} / {total}
+            {current} / {total}
           </p>
         )}
       </div>

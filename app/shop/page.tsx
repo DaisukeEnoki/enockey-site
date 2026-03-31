@@ -16,6 +16,7 @@ type Product = {
 
 type Series = {
   title: string;
+  lineStampUrl?: string;
   products: Product[];
 };
 
@@ -68,6 +69,7 @@ const series: Series[] = [
   },
   {
     title: "なかよし鯛焼き",
+    lineStampUrl: "https://line.me/S/sticker/33347461",
     products: [
       {
         id: 6,
@@ -144,6 +146,21 @@ export default function Shop() {
         {series.map((s) => (
           <div key={s.title} className="mb-14">
             <p className="text-xs text-gray-400 tracking-widest mb-4">{s.title}</p>
+            {s.lineStampUrl && (
+              <a
+                href={s.lineStampUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 mb-4 px-4 py-3 bg-white hover:opacity-80 transition-opacity w-fit"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#06C755">
+                  <path d="M12 2C6.48 2 2 5.92 2 10.72c0 3.16 1.83 5.94 4.6 7.64L5.5 22l4.26-2.3c.73.2 1.47.3 2.24.3 5.52 0 10-3.92 10-8.72S17.52 2 12 2z"/>
+                </svg>
+                <span className="text-sm font-medium" style={{ color: "#06C755" }}>
+                  LINE スタンプを見る
+                </span>
+              </a>
+            )}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {s.products.map((product) => (
                 <ProductCard key={product.id} product={product} />
