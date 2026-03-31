@@ -7,7 +7,7 @@ const sections = [
   {
     href: "/photography",
     label: "Photography",
-    cloudinaryId: "_42A1931-1-2_epzppp",
+    cloudinaryId: "DSC01261-194_erl1jz",
   },
   {
     href: "/illustration",
