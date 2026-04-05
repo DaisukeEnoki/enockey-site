@@ -14,9 +14,8 @@ const projectsMeta: Record<string, {
     title: "Seeds of Joy",
     year: "2024",
     folder: "Photography/seeds-of-joy-2024",
-    description: "UNSALOP によるグループ展「Seeds of Joy」に参加。喜びの種をテーマに撮影した作品を展示しました。",
-    url: "https://unsalop.com",
-    tags: ["exhibition", "portrait", "group show"],
+    description: "株式会社 SABON JapanがCSR活動として取り組むボランティア活動「Seeds of Joy」を撮影しました。",
+    tags: ["documentary", "CSR"],
   },
 };
 

@@ -20,6 +20,11 @@ const sections = [
     cloudinaryId: "favicon_hetwn3",
   },
   {
+    href: "/blog",
+    label: "Blog",
+    cloudinaryId: null,
+  },
+  {
     href: null,
     label: "Music",
     cloudinaryId: null,

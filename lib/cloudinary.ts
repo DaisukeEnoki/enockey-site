@@ -16,4 +16,12 @@ export async function getImagesInFolder(folder: string): Promise<string[]> {
   return result.resources.map((r: { public_id: string }) => r.public_id);
 }
 
+// Asset Folder方式（新しいCloudinary UI）で管理されているフォルダ用
+export async function getImagesByAssetFolder(folder: string): Promise<string[]> {
+  const result = await cloudinary.api.resources_by_asset_folder(folder, {
+    max_results: 100,
+  });
+  return result.resources.map((r: { public_id: string }) => r.public_id);
+}
+
 export default cloudinary;

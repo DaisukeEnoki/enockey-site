@@ -122,7 +122,7 @@ export default function ProjectViewer({ title, year, images, description, url, t
       {/* detail オーバーレイ */}
       {detailOpen && (
         <div
-          className="fixed inset-0 flex flex-col"
+          className="fixed inset-0 flex flex-col z-50"
           style={{ backgroundColor: "#f5f5f5" }}
         >
           {/* Close */}
