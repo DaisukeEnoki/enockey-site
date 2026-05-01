@@ -1,16 +1,7 @@
-// Server Component: hooks なし、"use client" 不要
-import type { Metadata } from "next";
+"use client";
+
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Profile",
-  description: "Daisuke Enoki（enockey）のプロフィール。写真家・イラストレーター・エンジニア。",
-  openGraph: {
-    title: "Profile | enockey",
-    description: "Daisuke Enoki（enockey）のプロフィール。写真家・イラストレーター・エンジニア。",
-  },
-};
 
 export default function Profile() {
   return (

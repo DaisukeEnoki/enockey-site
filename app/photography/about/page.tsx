@@ -1,16 +1,7 @@
-// Server Component: hooks なし、"use client" 不要
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { CldImage } from "next-cloudinary";
-
-export const metadata: Metadata = {
-  title: "Photography – About",
-  description: "Photographer based in Tokyo, from Ehime. Daisuke Enoki（enockey）について。",
-  openGraph: {
-    title: "About | enockey Photography",
-    description: "Photographer based in Tokyo, from Ehime. Daisuke Enoki（enockey）について。",
-  },
-};
 
 export default function PhotographyAbout() {
   return (

@@ -1,16 +1,7 @@
-// Server Component: hooks なし、"use client" 不要
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import { CldImage } from "next-cloudinary";
-
-export const metadata: Metadata = {
-  title: "Shop",
-  description: "enockey のオリジナルグッズ。SUZURI にて販売中。缶バッジ・マグカップ・トートバッグなど。",
-  openGraph: {
-    title: "Shop | enockey",
-    description: "enockey のオリジナルグッズ。SUZURI にて販売中。缶バッジ・マグカップ・トートバッグなど。",
-  },
-};
 
 const BASE = "https://lens.suzuri.jp/v3/500x500";
 

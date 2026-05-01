@@ -1,6 +1,6 @@
 # enockey.com
 
-Daisuke Enoki の個人サイト。写真・イラスト・音楽・エンジニアリングを通じて世界観を表現する場所。
+enockey の個人サイト。写真・イラスト・音楽・エンジニアリングを通じて世界観を表現する場所。
 
 **[enockey.com](https://enockey.com)**
 

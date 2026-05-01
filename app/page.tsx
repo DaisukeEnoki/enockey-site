@@ -1,14 +1,7 @@
-// Server Component: hooks なし、CldImage は Client Component だが
-// Server Component から import して使用可能（Next.js App Router の仕様）
-import type { Metadata } from "next";
+"use client";
+
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "enockey",
-  description:
-    "写真・イラスト・音楽・エンジニアリングを通じて世界観を表現する Daisuke Enoki のポートフォリオ。",
-};
 
 const sections = [
   {

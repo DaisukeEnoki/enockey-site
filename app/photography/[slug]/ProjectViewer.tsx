@@ -52,8 +52,7 @@ export default function ProjectViewer({ title, year, images, description, url, t
     <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#f5f5f5" }}>
 
       {/* ナビ上部 */}
-      {/* py-3 sm:py-4: モバイルは上下余白を少し詰めてビューを広げる */}
-      <div className="flex justify-between items-center px-6 py-3 sm:py-4 text-sm">
+      <div className="flex justify-between items-center px-6 py-4 text-sm">
         <Link href="/photography" className="text-gray-800 hover:opacity-60 transition-opacity">
           Index
         </Link>
@@ -74,10 +73,7 @@ export default function ProjectViewer({ title, year, images, description, url, t
       </div>
 
       {/* 写真エリア */}
-      {/* モバイル: items-start で写真を上寄せ（グローバルヘッダー分を含めると */}
-      {/*   items-center では中央に来ず大きな空白が生まれるため）           */}
-      {/* sm以上: items-center で縦中央配置（デスクトップは余白十分）       */}
-      <div className="flex-1 flex items-start sm:items-center justify-center px-4 sm:px-8 py-3 sm:py-2">
+      <div className="flex-1 flex items-center justify-center px-8 py-2">
         {total === 0 ? (
           <div className="w-full max-w-4xl aspect-video bg-gray-200 flex items-center justify-center">
             <p className="text-gray-400 text-sm">写真をCloudinaryにアップ後に表示されます</p>
@@ -86,19 +82,13 @@ export default function ProjectViewer({ title, year, images, description, url, t
           <div ref={containerRef} className="swiper w-full">
             <div className="swiper-wrapper">
               {images.map((src, i) => (
-                <div key={src} className="swiper-slide flex items-start sm:items-center justify-center">
-                  {/*
-                    max-h の計算:
-                    モバイル → 100svh(ブラウザUI除く高さ) - 14rem
-                      14rem ≈ グローバルヘッダー(7rem) + ナビ(3.5rem) + 情報バー(3.5rem)
-                    sm以上  → デスクトップ向けの従来計算
-                  */}
+                <div key={src} className="swiper-slide flex items-center justify-center">
                   <CldImage
                     src={src}
                     alt={`${title} - ${i + 1}`}
                     width={1600}
                     height={1200}
-                    className="max-h-[calc(100svh-14rem)] sm:max-h-[calc(100vh-8rem)] w-auto max-w-full object-contain"
+                    className="max-h-[calc(100vh-8rem)] w-auto max-w-full object-contain"
                   />
                 </div>
               ))}
@@ -108,8 +98,7 @@ export default function ProjectViewer({ title, year, images, description, url, t
       </div>
 
       {/* 情報下部 */}
-      {/* py-3 sm:py-4: モバイルは上下余白を少し詰める */}
-      <div className="flex justify-between items-end px-6 py-3 sm:py-4 text-sm">
+      <div className="flex justify-between items-end px-6 py-4 text-sm">
         <div>
           <p className="text-gray-800 font-medium uppercase tracking-wide">
             {title}, {year}

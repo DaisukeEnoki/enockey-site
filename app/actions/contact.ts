@@ -4,16 +4,6 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// ユーザー入力を HTML に埋め込む前にエスケープ（XSS・HTMLインジェクション対策）
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
 export async function sendContactEmail(formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
@@ -40,13 +30,12 @@ export async function sendContactEmail(formData: FormData) {
       from: "onboarding@resend.dev",
       to: "enockey.info@gmail.com",
       subject: `【enockey.com】${name}さんからのお問い合わせ`,
-      // ユーザー入力はすべて escapeHtml() でサニタイズしてから HTML に埋め込む
       html: `
         <h2>お問い合わせが届きました</h2>
-        <p><strong>お名前:</strong> ${escapeHtml(name)}</p>
-        <p><strong>メールアドレス:</strong> ${escapeHtml(email)}</p>
+        <p><strong>お名前:</strong> ${name}</p>
+        <p><strong>メールアドレス:</strong> ${email}</p>
         <p><strong>メッセージ:</strong></p>
-        <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
       `,
     });
 
