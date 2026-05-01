@@ -1,0 +1,20 @@
+title = "enockey-site gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "enockey-site の許可リスト（プレースホルダー・サンプル等）"
+
+paths = [
+  '''README\.md''',
+  '''\.env\.example$''',
+  '''node_modules/''',
+  '''\.next/''',
+]
+
+regexes = [
+  '''sk-xxx+''',
+  '''re_xxx+''',
+  '''AIza[0-9A-Za-z_-]{0,5}xxx+''',
+]
