@@ -28,6 +28,7 @@ export const projects: Project[] = [
     cover: "Photography/annual-rings/001",
     folder: "Photography/annual-rings",
     categories: ["portrait"],
+    description: "生まれる前から、毎年撮らせていただいているご家族です。",
   },
   {
     slug: "shino-takeishi",
