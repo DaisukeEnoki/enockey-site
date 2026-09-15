@@ -85,8 +85,10 @@ export default function ProjectViewer({ title, year, images, description, url, t
         ) : (
           <div ref={containerRef} className="swiper w-full">
             <div className="swiper-wrapper">
+              {/* !flex は必須: swiper/css が後から .swiper-slide を display:block に
+                  戻すため、! なしでは justify-center が効かず縦写真が左に寄る */}
               {images.map((src, i) => (
-                <div key={src} className="swiper-slide flex items-start sm:items-center justify-center">
+                <div key={src} className="swiper-slide !flex items-start sm:items-center justify-center">
                   {/*
                     max-h の計算:
                     モバイル → 100svh(ブラウザUI除く高さ) - 14rem
