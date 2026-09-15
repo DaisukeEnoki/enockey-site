@@ -10,7 +10,7 @@ import "swiper/css/effect-fade";
 
 type Props = {
   title: string;
-  year: string;
+  year?: string;
   images: string[];
   description?: string;
   url?: string;
@@ -112,7 +112,7 @@ export default function ProjectViewer({ title, year, images, description, url, t
       <div className="flex justify-between items-end px-6 py-3 sm:py-4 text-sm">
         <div>
           <p className="text-gray-800 font-medium uppercase tracking-wide">
-            {title}, {year}
+            {year ? `${title}, ${year}` : title}
           </p>
           {description && (
             <button

@@ -68,7 +68,9 @@ export default function PhotographyGallery({
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end">
                   <div className="p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="text-xs font-medium text-white">{project.title}</p>
-                    <p className="text-xs text-white/70">{project.year}</p>
+                    {project.year && (
+                      <p className="text-xs text-white/70">{project.year}</p>
+                    )}
                   </div>
                 </div>
               </div>

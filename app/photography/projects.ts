@@ -10,7 +10,8 @@
 export type Project = {
   slug: string;
   title: string;
-  year: string;
+  /** 未確定なら省略可。省略すると一覧・詳細とも年を表示しない */
+  year?: string;
   /** 一覧のサムネに使う Cloudinary の public_id。未設定なら灰色プレースホルダー */
   cover: string | null;
   /** 詳細ページで写真を読み込む Cloudinary のフォルダパス */
@@ -24,7 +25,6 @@ export const projects: Project[] = [
   {
     slug: "annual-rings",
     title: "Annual Rings",
-    year: "2024",
     cover: "Photography/annual-rings/001",
     folder: "Photography/annual-rings",
     categories: ["portrait"],
