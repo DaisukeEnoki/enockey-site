@@ -3,9 +3,10 @@
 // すべてこのファイルから生成されるので、撮影を追加するときはここに追記するだけでよい。
 //
 // 追加手順:
-//   1. Cloudinary に `Photography/<slug>` フォルダを作って写真をアップロード
-//   2. 下の projects に 1 ブロック追記（cover は一覧サムネに使う public_id）
-//   3. コミット・push（Vercel が自動デプロイ）
+//   1. 外付けの `<category>/<slug>/` に書き出す（例: personal/<slug>/）
+//   2. Cloudinary に `Photography/<slug>` フォルダを作って写真をアップロード
+//   3. 下の projects に 1 ブロック追記（cover は一覧サムネに使う public_id）
+//   4. コミット・push（Vercel が自動デプロイ）
 
 export type Project = {
   slug: string;
@@ -57,4 +58,11 @@ export function getProject(slug: string): Project | undefined {
 }
 
 /** フィルターに常時表示するカテゴリー。まだ作品がないものも選択肢として出す */
-export const categories = ["all", "portrait", "lifestyle", "editorial"] as const;
+export const categories = [
+  "all",
+  "portrait",
+  "lifestyle",
+  "editorial",
+  // 依頼ではなく自分のために撮ったプロジェクト。外付けは personal/<slug>/ に置く
+  "personal",
+] as const;
