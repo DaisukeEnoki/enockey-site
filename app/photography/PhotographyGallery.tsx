@@ -24,7 +24,9 @@ export default function PhotographyGallery({
 
   return (
     <main className="px-8 py-12" style={{ backgroundColor: "#ffffff" }}>
-      <div className="max-w-5xl mx-auto">
+      {/* ヘッダー（px-8）と左右の基準線を揃える。中央寄せの max-w だと
+          ヘッダーが全幅のままコンテンツだけ内側に寄り、右に大きな空白ができる */}
+      <div>
 
         {/* ナビ */}
         <div className="flex gap-8 mb-12 text-sm text-gray-400">
@@ -51,7 +53,7 @@ export default function PhotographyGallery({
         </div>
 
         {/* プロジェクトグリッド */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
           {filtered.map((project) => (
             <Link key={project.slug} href={`/photography/${project.slug}`}>
               <div className="aspect-[4/3] bg-gray-100 overflow-hidden group relative">
