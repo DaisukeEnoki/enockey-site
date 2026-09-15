@@ -25,7 +25,7 @@ export const projects: Project[] = [
   {
     slug: "annual-rings",
     title: "Annual Rings",
-    cover: "Photography/annual-rings/001",
+    cover: "Photography/annual-rings/002",
     folder: "Photography/annual-rings",
     categories: ["portrait"],
     description: "生まれる前から、毎年撮らせていただいているご家族です。",
