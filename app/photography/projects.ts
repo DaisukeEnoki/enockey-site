@@ -33,6 +33,15 @@ export const projects: Project[] = [
     categories: ["portrait"],
   },
   {
+    slug: "family",
+    title: "Family",
+    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/family/001"）
+    cover: null,
+    folder: "Photography/family",
+    categories: ["portrait"],
+    description: "いろんな家族の形を。",
+  },
+  {
     slug: "annual-rings",
     title: "Annual Rings",
     cover: "Photography/annual-rings/002",
