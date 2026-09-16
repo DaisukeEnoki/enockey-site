@@ -23,21 +23,41 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  // People も Family と同じく、通しで見たときにトーンが途切れないよう
+  // #1 はモノクロ、#2 はカラーで分けている（ラベルには色を出さない）
   {
-    slug: "people",
-    title: "People",
+    slug: "people-1",
+    title: "People #1",
     year: "2018-2026",
-    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/people/001"）
+    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/people-1/001"）
     cover: null,
-    folder: "Photography/people",
+    folder: "Photography/people-1",
     categories: ["portrait"],
   },
   {
-    slug: "family",
-    title: "Family",
-    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/family/001"）
+    slug: "people-2",
+    title: "People #2",
+    year: "2018-2026",
     cover: null,
-    folder: "Photography/family",
+    folder: "Photography/people-2",
+    categories: ["portrait"],
+  },
+  // Family は 1 つの作品として通しで見たときにトーンが途切れないよう、
+  // #1 はモノクロ、#2 はカラーで分けている（ラベルには色を出さない）
+  {
+    slug: "family-1",
+    title: "Family #1",
+    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/family-1/001"）
+    cover: null,
+    folder: "Photography/family-1",
+    categories: ["portrait"],
+    description: "いろんな家族の形を。",
+  },
+  {
+    slug: "family-2",
+    title: "Family #2",
+    cover: null,
+    folder: "Photography/family-2",
     categories: ["portrait"],
     description: "いろんな家族の形を。",
   },
