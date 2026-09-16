@@ -23,15 +23,15 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  // People も Family と同じく、通しで見たときにトーンが途切れないよう
-  // #1 はモノクロ、#2 はカラーで分けている（ラベルには色を出さない）
+  // People / Family とも、通しで見たときにトーンが途切れると感情の入り方が
+  // 変わるため #1 はモノクロ、#2 はカラーで分けている。モノクロには b/w タグを付ける
   {
     slug: "people-1",
     title: "People #1",
     year: "2018-2026",
     cover: "Photography/people-1/001",
     folder: "Photography/people-1",
-    categories: ["portrait"],
+    categories: ["portrait", "people", "b/w"],
   },
   {
     slug: "people-2",
@@ -39,17 +39,15 @@ export const projects: Project[] = [
     year: "2018-2026",
     cover: null,
     folder: "Photography/people-2",
-    categories: ["portrait"],
+    categories: ["portrait", "people"],
   },
-  // Family は 1 つの作品として通しで見たときにトーンが途切れないよう、
-  // #1 はモノクロ、#2 はカラーで分けている（ラベルには色を出さない）
   {
     slug: "family-1",
     title: "Family #1",
     // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/family-1/001"）
     cover: null,
     folder: "Photography/family-1",
-    categories: ["portrait"],
+    categories: ["portrait", "family", "b/w"],
     description: "いろんな家族の形を。",
   },
   {
@@ -57,7 +55,7 @@ export const projects: Project[] = [
     title: "Family #2",
     cover: null,
     folder: "Photography/family-2",
-    categories: ["portrait"],
+    categories: ["portrait", "family"],
     description: "いろんな家族の形を。",
   },
   {
@@ -65,7 +63,7 @@ export const projects: Project[] = [
     title: "Annual Rings",
     cover: "Photography/annual-rings/002",
     folder: "Photography/annual-rings",
-    categories: ["portrait"],
+    categories: ["portrait", "family"],
     description: "生まれる前から、毎年撮らせていただいているご家族です。",
   },
   {
@@ -74,7 +72,7 @@ export const projects: Project[] = [
     year: "2026",
     cover: "Photography/shino-takeishi/001",
     folder: "Photography/shino-takeishi",
-    categories: ["portrait"],
+    categories: ["portrait", "people"],
     description: "シンガーソングライター shinokumatic を撮影いたしました。",
     url: "https://www.instagram.com/shinokumatic/",
   },
@@ -102,4 +100,8 @@ export const categories = [
   "editorial",
   // 依頼ではなく自分のために撮ったプロジェクト。外付けは personal/<slug>/ に置く
   "personal",
+  // 被写体・表現形式のタグ。1 プロジェクトに複数付けて横断で見られるようにする
+  "people",
+  "family",
+  "b/w", // black and white（モノクロ）
 ] as const;
