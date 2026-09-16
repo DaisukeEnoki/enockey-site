@@ -29,8 +29,7 @@ export const projects: Project[] = [
     slug: "people-1",
     title: "People #1",
     year: "2018-2026",
-    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/people-1/001"）
-    cover: null,
+    cover: "Photography/people-1/001",
     folder: "Photography/people-1",
     categories: ["portrait"],
   },
