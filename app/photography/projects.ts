@@ -95,7 +95,7 @@ export function getProject(slug: string): Project | undefined {
 
 /**
  * フィルターに常時表示するカテゴリー。まだ作品がないものも選択肢として出す。
- * projects の categories にはこれ以外のタグ（b/w など）も付けてよく、
+ * projects の categories にはこれ以外のタグ（people / family / b/w など）も付けてよく、
  * そちらはフィルターには並べず作品の属性としてだけ持たせる。
  */
 export const categories = [
@@ -105,6 +105,4 @@ export const categories = [
   "editorial",
   // 依頼ではなく自分のために撮ったプロジェクト。外付けは personal/<slug>/ に置く
   "personal",
-  "people",
-  "family",
 ] as const;
