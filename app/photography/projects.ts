@@ -24,6 +24,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "people",
+    title: "People",
+    year: "2018-2026",
+    // 写真を Cloudinary に上げたら cover に public_id を入れる（例: "Photography/people/001"）
+    cover: null,
+    folder: "Photography/people",
+    categories: ["portrait"],
+  },
+  {
     slug: "annual-rings",
     title: "Annual Rings",
     cover: "Photography/annual-rings/002",
