@@ -32,6 +32,7 @@ export const projects: Project[] = [
     cover: "Photography/people-1/001",
     folder: "Photography/people-1",
     categories: ["portrait", "people", "b/w"],
+    description: "モノクロの人々の写真のアーカイブです。",
   },
   {
     slug: "people-2",
@@ -48,7 +49,7 @@ export const projects: Project[] = [
     cover: null,
     folder: "Photography/family-1",
     categories: ["portrait", "family", "b/w"],
-    description: "いろんな家族の形を。",
+    description: "モノクロの家族写真のアーカイブです。",
   },
   {
     slug: "family-2",
