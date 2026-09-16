@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { CldImage } from "next-cloudinary";
 import Swiper from "swiper";
@@ -15,14 +16,29 @@ type Props = {
   description?: string;
   url?: string;
   tags?: string[];
+  /** 末尾で Next を押したときに送る先。写真のあるプロジェクトだけが渡ってくる */
+  nextSlug?: string;
+  /** 先頭で Back を押したときに送る先 */
+  prevSlug?: string;
 };
 
-export default function ProjectViewer({ title, year, images, description, url, tags }: Props) {
+export default function ProjectViewer({ title, year, images, description, url, tags, nextSlug, prevSlug }: Props) {
+  const router = useRouter();
+  // Back で前のプロジェクトに入ったときは最後の写真から見せる。
+  // sessionStorage を使うのは URL にクエリを残さないため（作品の URL を汚さない）
+  const [startAtEnd, setStartAtEnd] = useState(false);
   const swiperRef = useRef<Swiper | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(1);
   const [detailOpen, setDetailOpen] = useState(false);
   const total = images.length;
+
+  useEffect(() => {
+    if (sessionStorage.getItem("photography:enterFromEnd") === "1") {
+      sessionStorage.removeItem("photography:enterFromEnd");
+      setStartAtEnd(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (!containerRef.current || total === 0) return;
@@ -33,20 +49,41 @@ export default function ProjectViewer({ title, year, images, description, url, t
       speed: 600,
       effect: "fade",
       fadeEffect: { crossFade: true },
+      initialSlide: startAtEnd ? total - 1 : 0,
       on: {
         slideChange(swiper) {
           setCurrent(swiper.activeIndex + 1);
         },
       },
     });
+    setCurrent(swiperRef.current.activeIndex + 1);
 
     return () => {
       swiperRef.current?.destroy();
     };
-  }, [total]);
+  }, [total, startAtEnd]);
 
-  const goPrev = () => swiperRef.current?.slidePrev();
-  const goNext = () => swiperRef.current?.slideNext();
+  // 端まで来たら Index に戻らず隣のプロジェクトへ送る。
+  // Back で前のプロジェクトへ行くときは最後の写真から始めて、流れが逆戻りしないようにする
+  const goPrev = () => {
+    const swiper = swiperRef.current;
+    if (swiper && !swiper.isBeginning) {
+      swiper.slidePrev();
+      return;
+    }
+    if (!prevSlug) return;
+    sessionStorage.setItem("photography:enterFromEnd", "1");
+    router.push(`/photography/${prevSlug}`);
+  };
+
+  const goNext = () => {
+    const swiper = swiperRef.current;
+    if (swiper && !swiper.isEnd) {
+      swiper.slideNext();
+      return;
+    }
+    if (nextSlug) router.push(`/photography/${nextSlug}`);
+  };
 
   return (
     <main className="min-h-screen flex flex-col" style={{ backgroundColor: "#f5f5f5" }}>
