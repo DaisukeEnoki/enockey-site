@@ -93,7 +93,11 @@ export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
-/** フィルターに常時表示するカテゴリー。まだ作品がないものも選択肢として出す */
+/**
+ * フィルターに常時表示するカテゴリー。まだ作品がないものも選択肢として出す。
+ * projects の categories にはこれ以外のタグ（b/w など）も付けてよく、
+ * そちらはフィルターには並べず作品の属性としてだけ持たせる。
+ */
 export const categories = [
   "all",
   "portrait",
@@ -101,8 +105,6 @@ export const categories = [
   "editorial",
   // 依頼ではなく自分のために撮ったプロジェクト。外付けは personal/<slug>/ に置く
   "personal",
-  // 被写体・表現形式のタグ。1 プロジェクトに複数付けて横断で見られるようにする
   "people",
   "family",
-  "b/w", // black and white（モノクロ）
 ] as const;
