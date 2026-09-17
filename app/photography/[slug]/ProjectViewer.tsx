@@ -33,6 +33,11 @@ export default function ProjectViewer({ title, year, images, description, url, t
   const [detailOpen, setDetailOpen] = useState(false);
   const total = images.length;
 
+  // 現在地の前後 2 枚までを描画対象にする。Next/Back は 1 枚ずつ進むので、
+  // 隣を先に用意しておけば遷移時に空白が見えない
+  const NEIGHBORS = 2;
+  const isNear = (i: number) => Math.abs(i - (current - 1)) <= NEIGHBORS;
+
   useEffect(() => {
     if (sessionStorage.getItem("photography:enterFromEnd") === "1") {
       sessionStorage.removeItem("photography:enterFromEnd");
@@ -128,13 +133,22 @@ export default function ProjectViewer({ title, year, images, description, url, t
                 <div key={src} className="swiper-slide !flex items-center justify-center">
                   {/* max-h-full: 親（.swiper-slide）が height:100% で高さ確定済みのため、
                       calc で画面高から引き算しなくてもここで縦横比を保ったまま収まる */}
-                  <CldImage
-                    src={src}
-                    alt={`${title} - ${i + 1}`}
-                    width={1600}
-                    height={1200}
-                    className="max-h-full w-auto max-w-full object-contain"
-                  />
+                  {/* 現在地の前後 NEIGHBORS 枚だけ描画する。全部を一度に DOM へ置くと
+                      枚数の多い作品（27 枚等）で iPhone の Safari がメモリ不足で落ちるため。
+                      fade 効果は全スライドを重ねて表示するので、単に loading="lazy" を
+                      付けるだけでは読み込みが始まってしまい効果がない */}
+                  {isNear(i) && (
+                    <CldImage
+                      src={src}
+                      alt={`${title} - ${i + 1}`}
+                      width={1600}
+                      height={1200}
+                      // 最初の 1 枚だけ優先読み込み。残りは遅延で取りに行く
+                      priority={i === 0}
+                      loading={i === 0 ? undefined : "lazy"}
+                      className="max-h-full w-auto max-w-full object-contain"
+                    />
+                  )}
                 </div>
               ))}
             </div>
