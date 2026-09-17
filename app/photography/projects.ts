@@ -109,10 +109,12 @@ export const projects: Project[] = [
     title: "Kansai University",
     // 2017 年と 2018 年の卒業式が混ざっている
     year: "2017-2018",
-    // 013 = 体育館前の大集合。個人ではなく「場」が写っていて documentary の主題に合う
-    cover: "Photography/kansai-university/013",
+    // 004 = 振り向いて笑う袴の一枚。顔は写っているが誰と特定されるより先に
+    // 「卒業式の空気」が伝わる絵で、一覧のサムネとして入口が開く
+    cover: "Photography/kansai-university/004",
     folder: "Photography/kansai-university",
     categories: ["documentary", "personal"],
+    description: "関西大学の卒業写真のアーカイブ。",
   },
   {
     slug: "seeds-of-joy",
