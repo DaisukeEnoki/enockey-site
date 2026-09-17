@@ -7,6 +7,29 @@
 //   2. Cloudinary に `Photography/<slug>` フォルダを作って写真をアップロード
 //   3. 下の projects に 1 ブロック追記（cover は一覧サムネに使う public_id）
 //   4. コミット・push（Vercel が自動デプロイ）
+//
+// ────────────────────────────────────────────────
+// 公開の判断軸（濱田英明「時間の面影」展のメモより・2026-09-17 採用）
+//
+//   写したい → 【その人のものになる】 → 見てもらいたい
+//
+// 真ん中を通らないものは出さない。自分の中で留まる写真は公開しない。
+// 「その人のものになる」= 見た人が自分のものとして受け取れること。
+// 具体的には「見たことがないけど、知ってる」を狙う（初めて見る光景なのに、
+// 見た人が自分の記憶を重ねられる）。撮った本人だけが意味を分かる記録は出さない。
+//
+// タイトルの型（上の判断軸から導かれる呼び方）
+//   1. 世界の名前（抽象）  Annual Rings / People / Family
+//      → 複数の撮影をまたぐ連作。見る人が「何を感じにいくか」を指す
+//   2. 固有名 + 年        Kansai University, 2018 / Seeds of Joy, 2024
+//      → 1 回の撮影でひとつの世界が成立するとき。その場にしかない名前を使う
+//   3. 人名              shinokumatic
+//      → 一人を撮った仕事
+//
+// 避けるのは「一般名詞化した行事名」だけ（Graduation / Wedding など）。
+// 誰もが知っている行事名は、見る前に「知ってる」で閉じてしまい余白が残らない。
+// 同じ卒業式でも Kansai University なら、その大学にしかない名前なので入口が開く。
+// ────────────────────────────────────────────────
 
 export type Project = {
   slug: string;
@@ -77,6 +100,20 @@ export const projects: Project[] = [
     description: "シンガーソングライター shinokumatic を撮影いたしました。",
     url: "https://www.instagram.com/shinokumatic/",
   },
+  // 自分自身の卒業式。参加者でありながら第三者の目線で切り取っている。
+  // 主題は個人ではなく「ある大学の卒業式」という場なので documentary。
+  // 依頼ではなく自分の関わりから撮っているので personal を重ねる
+  // （この 2 つは別の軸なので両方付く。濱田さんも portrait と personal を併用している）
+  {
+    slug: "kansai-university",
+    title: "Kansai University",
+    // 2017 年と 2018 年の卒業式が混ざっている
+    year: "2017-2018",
+    // 013 = 体育館前の大集合。個人ではなく「場」が写っていて documentary の主題に合う
+    cover: "Photography/kansai-university/013",
+    folder: "Photography/kansai-university",
+    categories: ["documentary", "personal"],
+  },
   {
     slug: "seeds-of-joy",
     title: "Seeds of Joy",
@@ -103,6 +140,9 @@ export const categories = [
   "portrait",
   "lifestyle",
   "editorial",
-  // 依頼ではなく自分のために撮ったプロジェクト。外付けは personal/<slug>/ に置く
+  // 出来事を第三者の目線で記録したもの。主題が個人ではなく「場」にあるとき
+  "documentary",
+  // 依頼ではなく自分の関わりから撮ったプロジェクト。外付けは personal/<slug>/ に置く。
+  // 主題の軸（portrait / documentary など）とは別の軸なので重ねて付けてよい
   "personal",
 ] as const;
