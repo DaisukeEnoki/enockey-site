@@ -14,9 +14,15 @@ enockey.com
 │       └── DaisukeEnoki/enockey-site
 │
 ├── ドメイン・DNS
-│   └── XServer（2027年2月まで）
+│   └── XServer（2027年2月更新期日・自動更新前に移管完了予定）
 │       └── enockey.com → Vercel（Aレコード: 216.198.79.1）
-│       └── 予定: お名前.comへ移管
+│       └── 移管予定（2026-Q4 着手 / 2027-01 末完了）:
+│           - 移管先: お名前.com または Cloudflare Registrar（2026-Q3 中に確定）
+│           - メール受信: Cloudflare Email Routing（無料）で `hello@enockey.com` 構築
+│           - DNS は移管先に移行（A・MX・SPF・DKIM・DMARC を再設定）
+│           - XServer ドメイン契約は移管完了後に他社管理へ
+│           - XServer レンタルサーバ契約は別途自動更新停止（Vercel 移行済のため）
+│           - LIFE memory: project_domain_migration.md / Calendar リマインダー 4 件登録済
 │
 ├── 画像管理
 │   └── Cloudinary（無料・25GB）
@@ -72,3 +78,10 @@ enockey.com
 | ドメイン（移管後） | 年額約1,500円 |
 
 **実質ほぼ無料で運用可能。**
+
+## 関連ドキュメント
+
+| ファイル | 内容 |
+|---|---|
+| `photography-viewer.md` | 作品ビューアの技術メモ（高さの決まり方・Swiper との衝突・写真追加の注意点） |
+| `viewer-centering-design.md` | 中央寄せの設計書（根本原因と受け入れ基準） |
