@@ -119,6 +119,20 @@ export const projects: Project[] = [
     categories: ["documentary", "personal"],
     description: "関西大学の卒業写真のアーカイブ。",
   },
+  // 地元・松山市雄郡地区の成人式。母校の体育館と校庭で撮っている。
+  // Kansai University と同じく「その場にしかない名前」を使い、
+  // 一般名詞化した「成人式」をタイトルにはしない（判断軸の3型のうち 2 番）
+  {
+    slug: "yushin-junior-high-school",
+    title: "Yushin Junior High School",
+    year: "2015",
+    // 001 = 伊予水軍太鼓と「祝 雄郡地区 成人式」の看板。
+    // 個人の顔より先に「その日の場」が伝わる絵なので入口として開く
+    cover: "Photography/yushin-junior-high-school/001",
+    folder: "Photography/yushin-junior-high-school",
+    categories: ["documentary", "personal"],
+    description: "雄新中学校での成人式のアーカイブ。",
+  },
   {
     slug: "seeds-of-joy",
     title: "Seeds of Joy",
