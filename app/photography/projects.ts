@@ -52,6 +52,7 @@ export const projects: Project[] = [
     slug: "people-1",
     title: "People #1",
     year: "2018-2026",
+    // 001 = DSC01843-158.jpg
     cover: "Photography/people-1/001",
     folder: "Photography/people-1",
     categories: ["portrait", "people", "b/w"],
@@ -61,8 +62,8 @@ export const projects: Project[] = [
     slug: "people-2",
     title: "People #2",
     year: "2018-2026",
-    // 002 = 海を背に笑う一枚。被写体が中央にあり 4:3 のサムネ切り取りでも
-    // 構図が崩れない
+    // 002 = 海を背に笑う一枚（IMG_5872-5-2.jpg）。被写体が中央にあり
+    // 4:3 のサムネ切り取りでも構図が崩れない
     cover: "Photography/people-2/002",
     folder: "Photography/people-2",
     categories: ["portrait", "people"],
@@ -90,6 +91,7 @@ export const projects: Project[] = [
     title: "Annual Rings",
     // 外付けに 2019 / 2022 / 2024 のフォルダあり
     year: "2019-2024",
+    // 002 = DSC01114-598のコピー.jpg
     cover: "Photography/annual-rings/002",
     folder: "Photography/annual-rings",
     categories: ["portrait", "family"],
@@ -100,6 +102,7 @@ export const projects: Project[] = [
     slug: "shino-takeishi",
     title: "shinokumatic",
     year: "2026",
+    // 001 = DSC02173.jpg
     cover: "Photography/shino-takeishi/001",
     folder: "Photography/shino-takeishi",
     categories: ["portrait", "people"],
@@ -115,9 +118,11 @@ export const projects: Project[] = [
     title: "Kansai University",
     // 2017 年と 2018 年の卒業式が混ざっている
     year: "2017-2018",
-    // 004 = 振り向いて笑う袴の一枚。顔は写っているが誰と特定されるより先に
-    // 「卒業式の空気」が伝わる絵で、一覧のサムネとして入口が開く
-    cover: "Photography/kansai-university/004",
+    // 003 = 振り向いて笑う袴の一枚（842A1004-27-2.jpg）。顔は写っているが
+    // 誰と特定されるより先に「卒業式の空気」が伝わる絵で、一覧の入口が開く。
+    // ⚠️ 連番はファイル名昇順で振り直されるため、写真を足すと番号がずれる。
+    // どの写真かを追えるようにファイル名を併記しておくこと
+    cover: "Photography/kansai-university/003",
     folder: "Photography/kansai-university",
     categories: ["documentary", "personal"],
     description: "関西大学の卒業写真のアーカイブです。",
@@ -129,7 +134,7 @@ export const projects: Project[] = [
     slug: "yushin-junior-high-school",
     title: "Yushin Junior High School",
     year: "2015",
-    // 001 = 伊予水軍太鼓と「祝 雄郡地区 成人式」の看板。
+    // 001 = 伊予水軍太鼓と「祝 雄郡地区 成人式」の看板（IMG_5479.jpg）。
     // 個人の顔より先に「その日の場」が伝わる絵なので入口として開く
     cover: "Photography/yushin-junior-high-school/001",
     folder: "Photography/yushin-junior-high-school",
@@ -144,7 +149,7 @@ export const projects: Project[] = [
     slug: "takatsuki",
     title: "Takatsuki",
     year: "2015-2018",
-    // 001 = 清掃の人が台車を押していく一枚。人が主題ではなく
+    // 001 = 後ろ姿の二人と日傘（IMG_3187.jpg）。人が主題ではなく
     // 街に流れている時間そのものが写っている
     cover: "Photography/takatsuki/001",
     folder: "Photography/takatsuki",
