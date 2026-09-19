@@ -117,7 +117,7 @@ export const projects: Project[] = [
     cover: "Photography/kansai-university/004",
     folder: "Photography/kansai-university",
     categories: ["documentary", "personal"],
-    description: "関西大学の卒業写真のアーカイブ。",
+    description: "関西大学の卒業写真のアーカイブです。",
   },
   // 地元・松山市雄郡地区の成人式。母校の体育館と校庭で撮っている。
   // Kansai University と同じく「その場にしかない名前」を使い、
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     cover: "Photography/yushin-junior-high-school/001",
     folder: "Photography/yushin-junior-high-school",
     categories: ["documentary", "personal"],
-    description: "雄新中学校での成人式のアーカイブ。",
+    description: "雄新中学校での成人式のアーカイブです。",
   },
   {
     slug: "seeds-of-joy",
