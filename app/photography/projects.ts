@@ -146,7 +146,8 @@ export const projects: Project[] = [
     cover: "Photography/takatsuki/001",
     folder: "Photography/takatsuki",
     categories: ["personal"],
-    description: "大学時代に住んでいた街です。",
+    // 説明文は置かない。撮った本人の事情を書くと見る人が自分の記憶を
+    // 重ねる余地が閉じるため（detail はタグだけでも開く）
   },
   {
     slug: "seeds-of-joy",
