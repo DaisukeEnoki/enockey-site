@@ -61,9 +61,12 @@ export const projects: Project[] = [
     slug: "people-2",
     title: "People #2",
     year: "2018-2026",
-    cover: null,
+    // 002 = 海を背に笑う一枚。被写体が中央にあり 4:3 のサムネ切り取りでも
+    // 構図が崩れない
+    cover: "Photography/people-2/002",
     folder: "Photography/people-2",
     categories: ["portrait", "people"],
+    description: "カラーの人々の写真のアーカイブです。",
   },
   {
     slug: "family-1",
