@@ -85,10 +85,13 @@ export const projects: Project[] = [
   {
     slug: "annual-rings",
     title: "Annual Rings",
+    // 外付けに 2019 / 2022 / 2024 のフォルダあり
+    year: "2019-2024",
     cover: "Photography/annual-rings/002",
     folder: "Photography/annual-rings",
     categories: ["portrait", "family"],
-    description: "生まれる前から、毎年撮らせていただいているご家族です。",
+    // 説明しすぎず、見る人が自分の記憶を重ねる余白を残す
+    description: "お腹の中にいた頃から、毎年。",
   },
   {
     slug: "shino-takeishi",
