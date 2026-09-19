@@ -16,3 +16,8 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* iOS Safari の長押しメニュー（写真に追加 / コピー）を出さない。Tailwind v4 に該当ユーティリティが無いので自作 */
+@utility touch-callout-none {
+  -webkit-touch-callout: none;
+}
