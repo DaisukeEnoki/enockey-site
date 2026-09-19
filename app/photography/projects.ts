@@ -133,6 +133,21 @@ export const projects: Project[] = [
     categories: ["documentary", "personal"],
     description: "雄新中学校での成人式のアーカイブです。",
   },
+  // 大学時代に住んでいた街。出来事ではなく日常の時間を撮っているので
+  // 主題の軸（portrait / documentary）は立たず、personal だけを付ける。
+  // 自分を写さず通りすがりの人を後ろ姿で置くことで、見る人が自分の住んだ街を
+  // 重ねられる余地を残している（判断軸④「見たことないけど知ってる」）
+  {
+    slug: "takatsuki",
+    title: "Takatsuki",
+    year: "2015-2018",
+    // 001 = 清掃の人が台車を押していく一枚。人が主題ではなく
+    // 街に流れている時間そのものが写っている
+    cover: "Photography/takatsuki/001",
+    folder: "Photography/takatsuki",
+    categories: ["personal"],
+    description: "大学時代に住んでいた街です。",
+  },
   {
     slug: "seeds-of-joy",
     title: "Seeds of Joy",
